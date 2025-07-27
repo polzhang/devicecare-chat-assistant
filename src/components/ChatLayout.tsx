@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Header from './Header';
 import MessageList from './MessageList';
 import InputArea from './InputArea';
 import { useChatbot } from '../hooks/useChatbot';
@@ -7,7 +6,31 @@ import { useChatbot } from '../hooks/useChatbot';
 const ChatLayout: React.FC = () => {
   const { messages, isLoading, sendMessage } = useChatbot();
   const [isOpen, setIsOpen] = useState(false);
-  const [isMinimized, setIsMinimized] = useState(false);
+
+  // Add CSS for animations
+  React.useEffect(() => {
+    if (!document.getElementById('chat-animations')) {
+      const style = document.createElement('style');
+      style.id = 'chat-animations';
+      style.textContent = `
+        @keyframes typingDot {
+          0%, 60%, 100% {
+            transform: translateY(0px);
+            opacity: 0.4;
+          }
+          30% {
+            transform: translateY(-8px);
+            opacity: 1;
+          }
+        }
+        .typing-dot-1 { animation: typingDot 1.4s infinite; }
+        .typing-dot-2 { animation: typingDot 1.4s infinite 0.2s; }
+        .typing-dot-3 { animation: typingDot 1.4s infinite 0.4s; }
+      `;
+      document.head.appendChild(style);
+    }
+  }, []);
+
 
   // Floating chat button (when closed)
   if (!isOpen) {
@@ -81,13 +104,14 @@ const ChatLayout: React.FC = () => {
       backgroundColor: '#ffffff',
       borderRadius: '12px',
       boxShadow: '0 8px 24px rgba(0, 0, 0, 0.15)',
-      border: '1px solid #e0e0e0',
+      border: '1px solid #ffffff',
       display: 'flex',
       flexDirection: 'column',
       fontFamily: 'system-ui, sans-serif',
       zIndex: 1000,
       transition: 'all 0.3s ease',
-      overflow: 'hidden'
+      overflow: 'hidden',
+      isolation: 'isolate'
     }}>
       {/* Custom Header with controls */}
       <div style={{
