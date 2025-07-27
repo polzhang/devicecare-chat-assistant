@@ -18,7 +18,7 @@ const MessageInput: React.FC<MessageInputProps> = ({
       value={value}
       onChange={(e) => onChange(e.target.value)}
       onKeyPress={(e) => e.key === 'Enter' && onSubmit()}
-      placeholder="Ask me anything about your device or coverage..."
+      placeholder="Ask me about your device or coverage..."
       disabled={disabled}
       style={{
         flex: 1,

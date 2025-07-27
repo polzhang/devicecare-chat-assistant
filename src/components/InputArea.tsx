@@ -19,17 +19,14 @@ const InputArea: React.FC<InputAreaProps> = ({ onSendMessage, isLoading }) => {
 
   return (
     <div style={{
-      padding: '24px 40px 32px',
+      padding: '16px',
       borderTop: '1px solid #e0e0e0',
-      maxWidth: '800px',
-      margin: '0 auto',
-      width: '100%',
-      boxSizing: 'border-box',
-      backgroundColor: '#ffffff'
+      backgroundColor: '#ffffff',
+      borderRadius: '0 0 12px 12px'
     }}>
       <div style={{
         display: 'flex',
-        gap: '12px'
+        gap: '8px'
       }}>
         <MessageInput
           value={input}

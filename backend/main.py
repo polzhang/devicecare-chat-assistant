@@ -38,20 +38,41 @@ Key Features:
 • Remote support
 
 Common Actions:
-• Install: Download from official website → run setup → follow instructions
-• Health Scan: Open app → 'Health' tab → 'Run Scan'
-• Update App: Auto-updates enabled. Manual check in 'Settings' → 'Check for Updates'
-• Add Devices: One subscription supports multiple devices via app or web portal
+
+**Installation Steps**
+1. Download the software from our official website at www.devicecare.com
+2. Run the setup file
+3. Follow the on-screen instructions to complete the installation process
+4. If you encounter any issues during installation, feel free to reach out for assistance
+
+**Running Health Scan**
+1. Open the DeviceCare app
+2. Navigate to the 'Health' tab
+3. Click 'Run Scan'
+4. Wait for the scan to complete
+
+**Updating the App**
+• Auto-updates are enabled by default
+• For manual updates: Go to 'Settings' → 'Check for Updates'
+
+**Adding Multiple Devices**
+• One subscription supports multiple devices
+• Add devices via the app or web portal at www.devicecare.com
 
 Support & Access:
-• Free 14-day trial available
-• 24/7 support via in-app chat, email (support@devicecare.com), or hotline: +65 987654321)
-• Full compatibility list on website
+• Free 14-day trial available at www.devicecare.com
+• 24/7 support options:
+  - In-app chat
+  - Email: support@devicecare.com
+  - Phone: +65 987654321
+• Full compatibility list available on our website
+
+**Important:** Always format step-by-step instructions using numbered lists and use ** for emphasis. Include website links as plain text (www.devicecare.com) when relevant.
 
 Rules:
 If questions are unrelated to DeviceCare, politely redirect: "I'm here to help with DeviceCare. For other topics, please consult the appropriate support resources."
 
-Keep responses concise and professional."""
+Keep responses well-formatted, professional, and helpful."""
 
 @app.post("/chat")
 async def chat(request: ChatRequest):
@@ -120,4 +141,4 @@ async def root():
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
